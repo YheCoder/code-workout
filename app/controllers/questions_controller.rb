@@ -114,6 +114,7 @@ class QuestionsController < ApplicationController
 
     if @question.up_votes.create(user_id: current_user.id)
       redirect_to question_path
+      flash[:notice] = "You have already up-voted this question!"
     else 
       flash[:notice] = "You have already up-voted this question!"
     end
